@@ -18,7 +18,7 @@ type Block struct {
 // Create a function who allow to Set Hash calculate and sets bock hash
 
 func (b *Block) SetHash() {
-	timestamp := []byte(strconv.FormatInt(b.Timestamp, 10))                       // Convertir le timestamps en un tableau de bytes
+	timestamp := []byte(strconv.FormatInt(b.Timestamps, 10))                      // Convertir le timestamps en un tableau de bytes
 	headers := bytes.Join([][]byte{b.PrevBlockHash, b.Data, timestamp}, []byte{}) // Combiner les données nécessaire pour calculer le hash
 	hash := sha256.Sum256(headers)                                                // Calculer le hachage de l'en-tête
 
